@@ -1,0 +1,108 @@
+.container {
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: flex-start; /* Align content to the top */
+    height: 10vh; /* Full viewport height */
+    width: 10vw; /* Full viewport width */
+    padding: 0; /* No padding to ensure it is flush with the edges */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.SideBar {
+    font-family: 'Roboto', sans-serif;
+    width: 200px; /* Fixed width for larger screens */
+    height: 80vh; /* Full viewport height */
+    background-color: #CDE3F3; 
+    border: 2px solid #000; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+    position: fixed; /* Fix to the left */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    padding: 10px; /* Inner padding for content */
+    box-sizing: border-box;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.heading {
+    font-size: small;
+    font-weight: 530;
+    letter-spacing: 2px;
+    color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 10px; /* Adjusted margin */
+}
+
+.pfp {
+    width: 150px;
+    height: 150px;
+    border: 4px double #000; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Adjusted margin */
+}
+
+.username {
+    text-align: center;
+    margin-top: 10px; 
+    font-family: 'Roboto', sans-serif; 
+    font-size: 18px;
+    color: #333; 
+    font-weight: 600;
+}
+
+.logout {
+    color: black;
+    margin-top: auto; /* Push to bottom */
+    border: 2px solid #000;
+    width: 180px;
+    height: 40px;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        justify-content: center; /* Center content horizontally */
+        height: 100vh; /* Full viewport height */
+       width: 80vw; /* Full viewport width */
+    }
+    
+    .SideBar {
+        width: calc(100% - 10px); /* Full width minus padding for mobile */
+        height: auto; /* Auto height for mobile */
+        position: relative; /* Change position to relative for mobile */
+        margin: 5px; /* Add margin for padding */
+        padding: 10px; /* Adjust padding for mobile */
+        border-radius: 10px; /* Adjust border-radius for mobile */
+    }
+    .logout {
+        margin-bottom: 70%;
+        margin-top: 20%;
+    }
+    
+    .pfp {
+        margin-top: 10px; /* Adjusted margin for mobile */
+    }
+    
+    .username {
+        margin-top: 5px; /* Adjusted margin for mobile */
+    }
+}

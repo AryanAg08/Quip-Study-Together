@@ -14,8 +14,11 @@
     "@chakra-ui/react": "^2.8.2",
     "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/theme-tools": "^2.1.2",
+    "prop-type": "^0.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
