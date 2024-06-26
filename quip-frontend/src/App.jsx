@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { SideBar } from './components/sidebar'
@@ -12,10 +9,9 @@ function App() {
     <>
      <ChakraProvider>
             <Navbar />
+            <SideBar />
         </ChakraProvider>
-      <SideBar />
-
-      <SideBar/>
+      
     </>
   )
 }
