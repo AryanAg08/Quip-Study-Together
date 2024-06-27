@@ -1,5 +1,5 @@
 import React from 'react'
-import {Menu,MenuButton, MenuList, MenuItem, MenuDivider, Button, IconButton, Stack } from '@chakra-ui/react';
+import {Menu, MenuButton, MenuList, Button, IconButton, Stack, Text } from '@chakra-ui/react';
 import { BellIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Image, Box } from '@chakra-ui/react'
 import "./navbar.css";
@@ -9,7 +9,14 @@ export function Navbar () {
     return (
       <div className="container">
           <div className="NavBar">
-                <Button backgroundColor="#99d288" variant="solid" border="2px" borderColor="black" height="6vh" fontWeight='semibold'>
+                <Button 
+                backgroundColor="#99d288" 
+                variant="solid" 
+                border="2px" 
+                borderColor="black" 
+                height="6vh" 
+                fontWeight='semibold'
+                >
                     Join a Study Room
                 </Button>
                 <Menu>
@@ -31,10 +38,21 @@ export function Navbar () {
                     <MenuItem>Notification 3</MenuItem>
                   </MenuList> */}
                   <MenuList>
-                    <Box boxSize='sm' display="flex" alignItems="center" marginLeft="30%">
-                      <Image boxSize='40%' objectFit='cover' src="/src/assets/no_notif.png" alt='no notifications' />
+                    <Box 
+                    boxSize='sm' 
+                    display="flex" 
+                    alignItems="center" 
+                    marginLeft="30%"
+                    >
+                      <Image 
+                      boxSize='40%' 
+                      objectFit='cover' 
+                      src="/src/assets/no_notif.png" 
+                      alt='no notifications' 
+                      />
+
+                      <Text marginTop="50%" marginLeft="-38%"> No notifications </Text>
                     </Box>
-                    <text> No notifications </text>
                   </MenuList>
                 </Menu>
                 <Menu>
@@ -50,13 +68,28 @@ export function Navbar () {
                   />
                   <MenuList>
                   <Stack spacing={1}>
-                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
+                    <Button 
+                    backgroundColor="transparent" 
+                    variant="solid" 
+                    height="5vh" 
+                    width="100%" 
+                    fontSize="medium">
                       Profile
                     </Button>  
-                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
+                    <Button 
+                    backgroundColor="transparent" 
+                    variant="solid" 
+                    height="5vh" 
+                    width="100%" 
+                    fontSize="medium">
                       Edit Profile
                     </Button>  
-                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium" textColor="red">
+                    <Button 
+                    backgroundColor="transparent" 
+                    variant="solid" 
+                    height="5vh" 
+                    width="100%" 
+                    fontSize="medium">
                       Reset account
                     </Button> 
                   </Stack> 
