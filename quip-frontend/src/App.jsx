@@ -7,10 +7,10 @@ function App() {
 
   return (
     <>
-     <ChakraProvider>
+      <ChakraProvider>
             <Navbar />
             <SideBar />
-        </ChakraProvider>
+      </ChakraProvider>
       
     </>
   )
