@@ -1,5 +1,5 @@
 import React from 'react'
-import {Menu,MenuButton, MenuList, MenuItem, MenuDivider, Popover, PopoverTrigger, PopoverContent, PopoverBody, PopoverArrow, Button, IconButton, Stack } from '@chakra-ui/react';
+import {Menu,MenuButton, MenuList, MenuItem, MenuDivider, Button, IconButton, Stack } from '@chakra-ui/react';
 import { BellIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Image, Box } from '@chakra-ui/react'
 import "./navbar.css";
@@ -37,35 +37,31 @@ export function Navbar () {
                     <text> No notifications </text>
                   </MenuList>
                 </Menu>
-                <Popover>
-                  <PopoverTrigger>
-                    <IconButton
-                          icon={<SettingsIcon />}
-                          isRound={true}
-                          variant="ghost"
-                          height="5vh"
-                          aria-label="Settings"
-                          border="2px solid black"
-                          mr={4}
-                      />
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <PopoverArrow />
-                      <PopoverBody>
-                      <Stack spacing={1}>
-                        <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
-                          Profile
-                        </Button>  
-                        <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
-                          Edit Profile
-                        </Button>  
-                        <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium" textColor="red">
-                          Reset account
-                        </Button> 
-                      </Stack> 
-                      </PopoverBody>
-                  </PopoverContent>
-                </Popover>
+                <Menu>
+                  <MenuButton
+                    as={IconButton}
+                    icon={<SettingsIcon />}
+                    isRound={true}
+                    variant="ghost"
+                    height="5vh"
+                    aria-label="Settings"
+                    border="2px solid black"
+                    mr={4}
+                  />
+                  <MenuList>
+                  <Stack spacing={1}>
+                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
+                      Profile
+                    </Button>  
+                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium">
+                      Edit Profile
+                    </Button>  
+                    <Button backgroundColor="transparent" variant="solid" height="5vh" width="100%" fontSize="medium" textColor="red">
+                      Reset account
+                    </Button> 
+                  </Stack> 
+                  </MenuList>
+                </Menu>
                    
             </div>
       </div>
