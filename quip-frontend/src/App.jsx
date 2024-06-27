@@ -9,12 +9,10 @@ function App() {
 
   return (
     <>
-     <ChakraProvider>
+      <ChakraProvider>
             <Navbar />
             <SideBar />
-            {/* <Chart /> */}
-            <Dashboard />
-        </ChakraProvider>
+      </ChakraProvider>
       
     </>
   )
