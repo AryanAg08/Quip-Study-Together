@@ -1,21 +1,18 @@
-import './App.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { SideBar } from './components/sidebar'
-import { Navbar } from './components/Navbar'
-import { Chart } from './components/checking-chart'
-import { Dashboard } from './Pages/Dashboard'
+// import './App.css'
+import { Route, Routes } from "react-router-dom";
+import { DashboardPage } from './Pages/Dashboard';
+
 
 function App() {
 
   return (
     <>
-      <ChakraProvider>
-            <Navbar />
-            <SideBar />
-      </ChakraProvider>
+       <Routes>
+         <Route exact path='/dashboard' element={<DashboardPage/>} />
+        </Routes>  
       
     </>
   )
 }
 
-export default App
+export default App;

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./try.css";
+import "./sidebar.css";
 import { LuLogOut } from "react-icons/lu";
 import { FaRegCircleQuestion } from "react-icons/fa6";
 
