@@ -2,21 +2,6 @@ body {
     background: none;
 }
 
-.Card-Study {
-    position: absolute;
-    top: -60px;
-    left: 80%;
-    margin-left: 40%;
-    height: 50vh;
-    width: 30vw;
-    background-color: #D4ECCD;
-  }
-  
-  @media screen and (max-width: 1563px) {
-    .Card-Study {
-      left: 60%;
-    }
-  }
 
 .Total-Study-time {
     margin-top: 20px;
@@ -36,12 +21,18 @@ body {
 .Total-study {
     color: black;
   }
-
+  
+.study-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10%;
+  }
 .Study-sessions {
     color: black;
     display: flex;
     align-items:center;
-    justify-content: left;
+    justify-content: flex-start;
     margin-top: 15%;
     font-size: 16px;
 }
@@ -58,6 +49,30 @@ body {
   }
   
   .icon-box svg {
+    color: white; /* Ensure the icon color contrasts with the background */
+  }
+
+.Study-rooms {
+    color: black;
+    display: flex;
+    align-items:center;
+    justify-content: left;
+    margin-top: 15%;
+    font-size: 16px;
+}
+
+.icon-box-room {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    border-radius: 4px; /* If you want the box to have slightly rounded corners */
+    margin-right: 8px; /* Space between the icon and the next element */
+  }
+  
+  .icon-box-room svg {
     color: white; /* Ensure the icon color contrasts with the background */
   }
 
