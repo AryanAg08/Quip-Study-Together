@@ -37,7 +37,7 @@ export function Navbar () {
                     <MenuDivider />
                     <MenuItem>Notification 3</MenuItem>
                   </MenuList> */}
-                  <MenuList>
+                  <MenuList background="#FEFCBF">
                     <Box 
                     boxSize='sm' 
                     display="flex" 
@@ -66,7 +66,7 @@ export function Navbar () {
                     border="2px solid black"
                     mr={4}
                   />
-                  <MenuList>
+                  <MenuList background="#FEFCBF">
                   <Stack spacing={1}>
                     <Button 
                     backgroundColor="transparent" 
