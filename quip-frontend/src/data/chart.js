@@ -30,7 +30,7 @@ export const barChartOptionsDashboard = {
         labels: {
           show: false,
           style: {
-            colors: "#fff",
+            colors: "#000",
             fontSize: "12px",
           },
         },
@@ -43,11 +43,11 @@ export const barChartOptionsDashboard = {
       },
       yaxis: {
         show: true,
-        color: "#fff",
+        color: "#000",
         labels: {
           show: true,
           style: {
-            colors: "#fff",
+            colors: "#000",
             fontSize: "12px",
             fontFamily: "Plus Jakarta Display",
           },
@@ -57,7 +57,7 @@ export const barChartOptionsDashboard = {
         show: false,
       },
       fill: {
-        colors: "#fff",
+        colors: "#000",
       },
       dataLabels: {
         enabled: false,

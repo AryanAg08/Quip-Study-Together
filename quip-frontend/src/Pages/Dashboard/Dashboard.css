@@ -1,3 +1,68 @@
 body {
     background: none;
 }
+
+.Card-Study {
+    position: absolute;
+    top: -60px;
+    left: 80%;
+    margin-left: 40%;
+    height: 50vh;
+    width: 30vw;
+    background-color: #D4ECCD;
+  }
+  
+  @media screen and (max-width: 1563px) {
+    .Card-Study {
+      left: 60%;
+    }
+  }
+
+.Total-Study-time {
+    margin-top: 20px;
+    margin-left: 5px;
+    font-family: "Roboto" sans-serif;
+}
+
+.Total {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.green-text {
+    color: #48BB78;
+  }
+  
+.Total-study {
+    color: black;
+  }
+
+.Study-sessions {
+    color: black;
+    display: flex;
+    align-items:center;
+    justify-content: left;
+    margin-top: 15%;
+    font-size: 16px;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    border-radius: 4px; /* If you want the box to have slightly rounded corners */
+    margin-right: 8px; /* Space between the icon and the next element */
+  }
+  
+  .icon-box svg {
+    color: white; /* Ensure the icon color contrasts with the background */
+  }
+
+@media (max-width: 1536px) {
+    .Card-Study {
+        margin-left: 80%;
+    }
+}
