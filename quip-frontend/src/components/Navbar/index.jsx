@@ -37,7 +37,7 @@ export function Navbar () {
                     <MenuDivider />
                     <MenuItem>Notification 3</MenuItem>
                   </MenuList> */}
-                  <MenuList background="#FEFCBF">
+                  <MenuList background="#dcebf7">
                     <Box 
                     boxSize='sm' 
                     display="flex" 
@@ -66,18 +66,18 @@ export function Navbar () {
                     border="2px solid black"
                     mr={4}
                   />
-                  <MenuList background="#FEFCBF">
+                  <MenuList background="#dcebf7">
                   <Stack spacing={1}>
                     <Button 
-                    backgroundColor="transparent" 
+                    background="transparent"
                     variant="solid" 
                     height="5vh" 
                     width="100%" 
                     fontSize="medium">
                       Profile
-                    </Button>  
+                    </Button> 
                     <Button 
-                    backgroundColor="transparent" 
+                    background="transparent"
                     variant="solid" 
                     height="5vh" 
                     width="100%" 
@@ -85,11 +85,12 @@ export function Navbar () {
                       Edit Profile
                     </Button>  
                     <Button 
-                    backgroundColor="transparent" 
+                    background="transparent" 
                     variant="solid" 
                     height="5vh" 
                     width="100%" 
-                    fontSize="medium">
+                    fontSize="medium"
+                    textColor="red">
                       Reset account
                     </Button> 
                   </Stack> 
