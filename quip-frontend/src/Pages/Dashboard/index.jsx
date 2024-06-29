@@ -2,7 +2,7 @@ import "./dashboard.css";
 import React from "react";
 import { Navbar } from "../../components/Navbar";
 import { SideBar } from "../../components/sidebar";
-import { ChakraProvider } from '@chakra-ui/react'
+import { Image, ChakraProvider } from '@chakra-ui/react'
 import Card from "../../components/Card";
 import BarChart from "../../components/Charts";
 import { barChartDataDashboard, barChartOptionsDashboard } from "../../data/chart";
@@ -19,6 +19,14 @@ export function DashboardPage() {
     }
     const StudyTimeChart = {
         bg: "#9BD68A"
+    }
+    const StreakCard = {
+        top: "-40px",
+        left: "60%",
+        height: "30vh",
+        width: "14vw",
+        bg: "#F8EED4",
+        border: "2px solid black"
     }
     return (
         <>
@@ -55,6 +63,22 @@ export function DashboardPage() {
                 </div>
                 </div>
             </Card>
+            <Card position={StreakCard}>
+            <div className="streak-container">
+                <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                    <Image 
+                        boxSize='60%'
+                        border='2px solid black'
+                        borderRadius='50%'
+                        src="/src/assets/streak.png" 
+                        alt='streak'
+                    />
+                </span>
+                <div style={{ fontSize: "large", fontWeight: "bold" }}>18 Days</div>
+                <div style={{ fontSize: "small", fontWeight: "normal", marginTop: "-4px"}}>so far</div>
+                <div style={{ fontSize: "large", fontWeight: "bold" }}>Keep it Up!</div>
+            </div>
+        </Card>
         </>
     )
 }
