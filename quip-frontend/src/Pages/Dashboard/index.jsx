@@ -1,4 +1,4 @@
-import "./dashboard.css";
+import "./Dashboard.css";
 import React from "react";
 import { Navbar } from "../../components/Navbar";
 import { SideBar } from "../../components/sidebar";
@@ -13,7 +13,7 @@ export function DashboardPage() {
     const StudyTimeCard = {
         top: "-60px",
         left: "60%",
-        height: "45vh",
+        height: "50vh",
         width: "30vw",
         bg: "#D4ECCD",
     }
@@ -23,7 +23,7 @@ export function DashboardPage() {
     const StreakCard = {
         top: "-40px",
         left: "60%",
-        height: "30vh",
+        height: "28vh",
         width: "14vw",
         bg: "#F8EED4",
         border: "2px solid black"

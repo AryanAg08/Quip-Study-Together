@@ -25,7 +25,7 @@ export const barChartOptionsDashboard = {
         theme: "dark",
       },
       xaxis: {
-        categories: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+        categories: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sun"],
         show: false,
         labels: {
           show: false,
