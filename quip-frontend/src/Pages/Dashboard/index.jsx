@@ -10,9 +10,14 @@ import { MdRocketLaunch } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
 
 export function DashboardPage() {
+    const DashboardCard = {
+        height: '100%',
+        width: '100%',
+        bg: 'none',
+    }
     const StudyTimeCard = {
-        top: "-60px",
-        left: "60%",
+        top: "-10vh",
+        left: "15vw",
         height: "50vh",
         width: "30vw",
         bg: "#D4ECCD",
@@ -21,15 +26,23 @@ export function DashboardPage() {
         bg: "#9BD68A"
     }
     const StreakCard = {
-        top: "-40px",
-        left: "60%",
-        height: "28vh",
+        top: "-60vh",
+        left: "80vw",
+        height: "30vh",
         width: "14vw",
         bg: "#F8EED4",
         border: "2px solid black"
     }
+    const LeaderboardCard = {
+        top: "-90vh",
+        left: "47.5vw",
+        height: "70vh",
+        width: "30vw",
+        bg: "#FAECFF",
+    }
     return (
         <>
+        <Card position={DashboardCard}>
             <ChakraProvider>
                 <Navbar />
             </ChakraProvider>
@@ -78,6 +91,11 @@ export function DashboardPage() {
                 <div style={{ fontSize: "small", fontWeight: "normal", marginTop: "-4px"}}>so far</div>
                 <div style={{ fontSize: "large", fontWeight: "bold" }}>Keep it Up!</div>
             </div>
+            </Card>
+            
+            <Card position={LeaderboardCard}>
+
+            </Card>
         </Card>
         </>
     )
