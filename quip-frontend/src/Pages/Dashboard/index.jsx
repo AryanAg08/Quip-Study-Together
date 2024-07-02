@@ -44,6 +44,15 @@ export function DashboardPage() {
         position: "absolute",
         bg: "#FAECFF",
     };
+    const GoalsCard = {
+        top: "65vh",
+        left: "15vw",
+        height: "50vh",
+        width: "30vw",
+        position: "absolute",
+        bg: "#F8EED4",
+        border: "2px solid black",
+    };
     return (
         <>
             <Card position={DashboardCard}>
@@ -133,6 +142,9 @@ export function DashboardPage() {
                             </TableContainer>
                         </Box>
                     </ChakraProvider>
+                </Card>
+                <Card position={GoalsCard}>
+
                 </Card>
             </Card>
         </>
