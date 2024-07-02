@@ -144,7 +144,9 @@ export function DashboardPage() {
                     </ChakraProvider>
                 </Card>
                 <Card position={GoalsCard}>
-
+                <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                    <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
+                </span>
                 </Card>
             </Card>
         </>

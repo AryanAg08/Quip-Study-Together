@@ -45,12 +45,12 @@ body {
   width: 24px;
   height: 24px;
   background-color: black;
-  border-radius: 4px; /* If you want the box to have slightly rounded corners */
-  margin-right: 8px; /* Space between the icon and the next element */
+  border-radius: 4px; 
+  margin-right: 8px; 
 }
   
 .icon-box svg {
-  color: white; /* Ensure the icon color contrasts with the background */
+  color: white; 
 }
 
 .Study-rooms {
@@ -69,12 +69,12 @@ body {
   width: 24px;
   height: 24px;
   background-color: black;
-  border-radius: 4px; /* If you want the box to have slightly rounded corners */
-  margin-right: 8px; /* Space between the icon and the next element */
+  border-radius: 4px; 
+  margin-right: 8px; 
 }
   
 .icon-box-room svg {
-  color: white; /* Ensure the icon color contrasts with the background */
+  color: white; 
 }
 
 .streak-container {
