@@ -9,12 +9,13 @@ import { barChartDataDashboard, barChartOptionsDashboard } from "../../data/char
 import { leaderboardDataDashboard } from "../../data/ranks";
 import { MdRocketLaunch } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
+import Goals from "../../components/goals";
 
 export function DashboardPage() {
     const [leaderboardData, setLeaderboardData] = useState([]);
 
     useEffect(() => {
-            setLeaderboardData(leaderboardDataDashboard);
+        setLeaderboardData(leaderboardDataDashboard);
     }, []);
 
     const DashboardCard = {
@@ -157,9 +158,12 @@ export function DashboardPage() {
                     </ChakraProvider>
                 </Card>
                 <Card position={GoalsCard}>
-                    <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                        <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
-                    </span>
+                    <ChakraProvider>
+                        <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                            <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
+                        </span>
+                        <Goals />
+                    </ChakraProvider>
                 </Card>
             </Card>
         </>
