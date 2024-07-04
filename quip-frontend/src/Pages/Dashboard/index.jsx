@@ -1,5 +1,5 @@
 import "./Dashboard.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "../../components/Navbar";
 import { SideBar } from "../../components/sidebar";
 import { Image, ChakraProvider, Table, Thead, Tbody, Tr, Th, Td, TableContainer, Box } from '@chakra-ui/react';
@@ -11,6 +11,12 @@ import { MdRocketLaunch } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
 
 export function DashboardPage() {
+    const [leaderboardData, setLeaderboardData] = useState([]);
+
+    useEffect(() => {
+            setLeaderboardData(leaderboardDataDashboard);
+    }, []);
+
     const DashboardCard = {
         height: '100%',
         width: '100%',
@@ -53,6 +59,7 @@ export function DashboardPage() {
         bg: "#F8EED4",
         border: "2px solid black",
     };
+
     return (
         <>
             <Card position={DashboardCard}>
@@ -109,44 +116,50 @@ export function DashboardPage() {
                         <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                             <div style={{ fontSize: "x-large", fontWeight: "bold" }}>LEADERBOARD</div>
                         </span>
-                        <Box height="calc(60vh)" overflowY="scroll" overflowX="scroll">
-                            <TableContainer>
-                                <Table variant="simple">
-                                    <Thead>
-                                        <Tr>
-                                            <Th>Rank</Th>
-                                            <Th>    </Th>
-                                            <Th>Name</Th>
-                                            <Th>Study hours</Th>
-                                        </Tr>
-                                    </Thead>
-                                    <Tbody>
-                                        {leaderboardDataDashboard.map((user) => (
-                                            <Tr key={user.rank}>
-                                                <Td>{user.rank}</Td>
-                                                <Td>
-                                                    <Image
-                                                        boxSize="4vh"
-                                                        borderRadius="full"
-                                                        src={user.avatar}
-                                                        alt={`${user.name} avatar`}
-                                                        mr={2}
-                                                    />
-                                                </Td>
-                                                <Td>{user.name}</Td>
-                                                <Td>{user.points}</Td>
+                        {leaderboardData.length > 0 ? (
+                            <Box height="calc(60vh)" overflowY="scroll" overflowX="scroll">
+                                <TableContainer>
+                                    <Table variant="simple">
+                                        <Thead>
+                                            <Tr>
+                                                <Th>Rank</Th>
+                                                <Th> </Th>
+                                                <Th>Name</Th>
+                                                <Th>Study hours</Th>
                                             </Tr>
-                                        ))}
-                                    </Tbody>
-                                </Table>
-                            </TableContainer>
-                        </Box>
+                                        </Thead>
+                                        <Tbody>
+                                            {leaderboardData.map((user) => (
+                                                <Tr key={user.rank}>
+                                                    <Td>{user.rank}</Td>
+                                                    <Td>
+                                                        <Image
+                                                            boxSize="4vh"
+                                                            borderRadius="full"
+                                                            src={user.avatar}
+                                                            alt={`${user.name} avatar`}
+                                                            mr={2}
+                                                        />
+                                                    </Td>
+                                                    <Td>{user.name}</Td>
+                                                    <Td>{user.points}</Td>
+                                                </Tr>
+                                            ))}
+                                        </Tbody>
+                                    </Table>
+                                </TableContainer>
+                            </Box>
+                        ) : (
+                            <Box display="flex" justifyContent="center" alignItems="center" height="calc(60vh)">
+                                Leaderboard not available currently
+                            </Box>
+                        )}
                     </ChakraProvider>
                 </Card>
                 <Card position={GoalsCard}>
-                <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                    <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
-                </span>
+                    <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
+                    </span>
                 </Card>
             </Card>
         </>
