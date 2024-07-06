@@ -54,7 +54,7 @@ export function DashboardPage() {
     const GoalsCard = {
         top: "65vh",
         left: "15vw",
-        height: "50vh",
+        height: "70vh",
         width: "30vw",
         position: "absolute",
         bg: "#F8EED4",
@@ -162,7 +162,9 @@ export function DashboardPage() {
                         <span style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
                             <div style={{ fontSize: "x-large", fontWeight: "bold" }}>YOUR GOALS</div>
                         </span>
-                        <Goals />
+                        <Box height="calc(60vh)" overflowX="scroll">
+                            <Goals />
+                        </Box>
                     </ChakraProvider>
                 </Card>
             </Card>

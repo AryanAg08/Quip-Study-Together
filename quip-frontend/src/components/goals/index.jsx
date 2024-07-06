@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Checkbox, Stack, IconButton, Box } from '@chakra-ui/react';
+import { Button, Input, Checkbox, Stack, IconButton, Box, Progress, Text } from '@chakra-ui/react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 
 const Goals = () => {
@@ -39,6 +39,10 @@ const Goals = () => {
         setGoals(updatedGoals);
     };
 
+    const completedGoalsCount = goals.filter(goal => goal.completed).length;
+    const totalGoalsCount = goals.length;
+    const completionPercentage = totalGoalsCount === 0 ? 0 : (completedGoalsCount / totalGoalsCount) * 100;
+
     return (
         <Box p={4}>
             <Stack spacing={3}>
@@ -48,37 +52,45 @@ const Goals = () => {
                     onChange={(e) => setNewGoal(e.target.value)}
                 />
                 <Button onClick={addGoal} colorScheme="teal">Add Goal</Button>
+                <Box my={4}>
+                    <Text mb={2}>Progress: {completedGoalsCount} / {totalGoalsCount} goals completed</Text>
+                    <Progress value={completionPercentage} colorScheme="teal" />
+                </Box>
                 {goals.map((goal, index) => (
-                    <Box key={index} display="flex" alignItems="center" justifyContent="space-between">
-                        {editingIndex === index ? (
-                            <>
-                                <Input
-                                    value={editingText}
-                                    onChange={(e) => setEditingText(e.target.value)}
-                                />
-                                <Button onClick={() => saveGoal(index)} colorScheme="blue">Save</Button>
-                            </>
-                        ) : (
-                            <>
-                                <Checkbox
-                                    isChecked={goal.completed}
-                                    onChange={() => toggleGoalCompletion(index)}
-                                >
-                                    {goal.text}
-                                </Checkbox>
-                                <Box>
-                                    <IconButton
-                                        icon={<FaEdit />}
-                                        onClick={() => editGoal(index)}
-                                        mr={2}
-                                    />
-                                    <IconButton
-                                        icon={<FaTrash />}
-                                        onClick={() => deleteGoal(index)}
-                                    />
-                                </Box>
-                            </>
-                        )}
+                    <Box
+                        key={index}
+                        display="flex"
+                        flexDirection="column"
+                        p={2}
+                        border="1px solid #e2e8f0"
+                        borderRadius="md"
+                    >
+                        <Box display="flex" alignItems="center">
+                            <Checkbox
+                                isChecked={goal.completed}
+                                onChange={() => toggleGoalCompletion(index)}
+                                mr={2}
+                            />
+                            <span style={{ 
+                                textDecoration: goal.completed ? 'line-through' : 'none', 
+                                textDecorationThickness: '2px', // Example value for increased thickness
+                                wordBreak: 'break-word', 
+                                flex: 1 
+                            }}>
+                                {goal.text}
+                            </span>
+                        </Box>
+                        <Box display="flex" justifyContent="flex-end" mt={2}>
+                            <IconButton
+                                icon={<FaEdit />}
+                                onClick={() => editGoal(index)}
+                                mr={2}
+                            />
+                            <IconButton
+                                icon={<FaTrash />}
+                                onClick={() => deleteGoal(index)}
+                            />
+                        </Box>
                     </Box>
                 ))}
             </Stack>
