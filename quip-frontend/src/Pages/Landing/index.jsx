@@ -2,8 +2,14 @@ import "./Landing.css";
 import React from "react";
 import { Navbar } from "../../components/landingNavbar";
 import { ChakraProvider, Box, Heading, Text, Button, Image, Flex } from '@chakra-ui/react';
+import { useNavigate } from "react-router-dom";
 
 export function LandingPage() {
+    const navigate = useNavigate(); 
+
+    const goToTrial = () => {
+        navigate("/video"); 
+    };
     return (
         <>
             <ChakraProvider>
@@ -15,7 +21,7 @@ export function LandingPage() {
                                 <Heading fontSize='2xl'>
                                     Feeling unsure? <br/> Try out a dummy study room before signing up<br/> 
                                 </Heading>
-                                <Button size='lg' colorScheme='purple' mt='24px'>
+                                <Button size='lg' colorScheme='purple' mt='24px' onClick={goToTrial}>
                                     Trial Study Room
                                 </Button>
                             </Box>
