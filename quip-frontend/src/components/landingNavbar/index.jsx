@@ -2,7 +2,7 @@ import React from 'react'
 import {Menu, MenuButton, MenuList, Button, IconButton, Stack, Text } from '@chakra-ui/react';
 import { BellIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Image, Box } from '@chakra-ui/react'
-import "./navbar.css";
+import "./landingNavbar.css";
 
 export function Navbar () {
   {
