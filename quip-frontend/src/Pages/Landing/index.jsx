@@ -7,8 +7,7 @@ export function LandingPage() {
     return (
         <>
             <ChakraProvider>
-                <Box height="100vh" width="100vw" bg="none" paddingTop="8vh">
-                    <Navbar />
+                <Box height="100vh" width="100vw" bg="none">
                     <Box width="100vw" bg="#FAECFF" height="70vh">
                         <Flex justifyContent="space-between" alignItems="center" height="100%" px={40}>
                             <Box>
@@ -20,14 +19,32 @@ export function LandingPage() {
                                     Trial Study Room
                                 </Button>
                             </Box>
-
-                            {/* Image on the right */}
                             <Box>
                                 <Image
                                     src="/src/assets/trialRoom.svg"
                                     alt="try out now"
                                     boxSize="70vh"
                                 />
+                            </Box>
+                        </Flex>
+                    </Box>
+                    <Box width="100vw" bg="#f8ece5" height="70vh">
+                        <Flex justifyContent="space-between" alignItems="center" height="100%" px={40}>
+                            <Box>
+                                <Image
+                                    src="/src/assets/signUpNow.svg"
+                                    alt="sign up now"
+                                    boxSize="70vh"
+                                />
+                            </Box>
+                            <Box mr={40}>
+                                <Heading mb={4}>Join Us!</Heading>
+                                <Button size='lg' colorScheme='pink' mt='25px' mr='30px'>
+                                    Sign Up
+                                </Button>
+                                <Button size='lg' colorScheme='pink' mt='25px'>
+                                    Log In
+                                </Button>
                             </Box>
                         </Flex>
                     </Box>
