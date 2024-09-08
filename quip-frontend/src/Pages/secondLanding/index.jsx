@@ -1,8 +1,8 @@
-import "./Landing.css";
+import "./SecondLanding.css";
 import React from "react";
 import { Navbar } from "../../components/Navbar";
 import { ChakraProvider } from '@chakra-ui/react'
-export function LandingPage() {
+export function SecondLandingPage() {
 
     return (
         <>
