@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Input, Checkbox, Stack, IconButton, Box, Progress, Text } from '@chakra-ui/react';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaSave } from 'react-icons/fa';
 
 const Goals = () => {
     const [goals, setGoals] = useState([]);
@@ -71,24 +71,43 @@ const Goals = () => {
                                 onChange={() => toggleGoalCompletion(index)}
                                 mr={2}
                             />
-                            <span style={{ 
-                                textDecoration: goal.completed ? 'line-through' : 'none', 
-                                textDecorationThickness: '2px', // Example value for increased thickness
-                                wordBreak: 'break-word', 
-                                flex: 1 
-                            }}>
-                                {goal.text}
-                            </span>
+                            {editingIndex === index ? (
+                                <Input
+                                    value={editingText}
+                                    onChange={(e) => setEditingText(e.target.value)}
+                                    flex={1}
+                                    mr={2}
+                                />
+                            ) : (
+                                <span style={{ 
+                                    textDecoration: goal.completed ? 'line-through' : 'none', 
+                                    textDecorationThickness: '2px', 
+                                    wordBreak: 'break-word', 
+                                    flex: 1 
+                                }}>
+                                    {goal.text}
+                                </span>
+                            )}
                         </Box>
                         <Box display="flex" justifyContent="flex-end" mt={2}>
-                            <IconButton
-                                icon={<FaEdit />}
-                                onClick={() => editGoal(index)}
-                                mr={2}
-                            />
+                            {editingIndex === index ? (
+                                <IconButton
+                                    icon={<FaSave />}
+                                    onClick={() => saveGoal(index)}
+                                    mr={2}
+                                    colorScheme="green"
+                                />
+                            ) : (
+                                <IconButton
+                                    icon={<FaEdit />}
+                                    onClick={() => editGoal(index)}
+                                    mr={2}
+                                />
+                            )}
                             <IconButton
                                 icon={<FaTrash />}
                                 onClick={() => deleteGoal(index)}
+                                colorScheme="red"
                             />
                         </Box>
                     </Box>
