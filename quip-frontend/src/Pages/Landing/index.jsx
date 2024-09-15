@@ -13,17 +13,28 @@ export function LandingPage() {
     return (
         <>
             <ChakraProvider>
+                <Navbar></Navbar>
             <Box width="100vw" bg="none">
                     {/* First Section */}
                     <Box width="100vw" bg="#FFFFFF" height="100vh">
                         <Flex justifyContent="space-between" alignItems="center" height="100%" px={40}>
                             <Box>
+                                <Heading fontSize='4xl' fontWeight={400}>
+                                    Introducing Quip
+                                    <br/>
+                                </Heading>
                                 <Heading mb={4} fontSize='6xl'>Goals, Progress, Collaboration</Heading>
                                 <Heading fontSize='2xl' fontWeight={400}>
                                     Where learning meets teamwork
                                 </Heading>
-                                <Button size='lg' colorScheme='blue' mt='24px'>
-                                    Get Started
+                                <Button 
+                                    size='lg' 
+                                    backgroundColor='#add8e6' 
+                                    mt='24px' 
+                                    border="2px" 
+                                    borderColor="black"
+                                >
+                                    <Text color='black'>Get Started</Text>
                                 </Button>
                             </Box>
                             <Box>
@@ -93,7 +104,13 @@ export function LandingPage() {
                                 <Heading fontSize='2xl' fontWeight={400}>
                                     Feeling unsure? <br/> Try out a dummy study room before signing up<br/> 
                                 </Heading>
-                                <Button size='lg' colorScheme='purple' mt='24px' onClick={goToTrial}>
+                                <Button 
+                                    size='lg' 
+                                    backgroundColor='#be88e2' 
+                                    mt='24px' 
+                                    border='2px solid'
+                                    onClick={goToTrial}
+                                >
                                     Trial Study Room
                                 </Button>
                             </Box>
@@ -117,10 +134,20 @@ export function LandingPage() {
                             </Box>
                             <Box mr={40}>
                                 <Heading mb={4}>Join Us!</Heading>
-                                <Button size='lg' colorScheme='pink' mt='25px' mr='30px'>
+                                <Button 
+                                    size='lg' 
+                                    backgroundColor='#e288c8' 
+                                    border='2px solid black'
+                                    mt='25px' 
+                                    mr='30px'
+                                >
                                     Sign Up
                                 </Button>
-                                <Button size='lg' colorScheme='pink' mt='25px'>
+                                <Button  size='lg' 
+                                    backgroundColor='#e288c8' 
+                                    border='2px solid black'
+                                    mt='25px'
+                                >
                                     Log In
                                 </Button>
                             </Box>
