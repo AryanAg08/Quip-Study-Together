@@ -8,6 +8,8 @@ const port = 5001 || process.env.PORT;
 const { Server } = require("socket.io");
 const cors = require("cors");
 
+app.use(express.json());
+
 app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
@@ -46,6 +48,9 @@ io.on("connection", (socket) => {
     console.log("user disconnected", socket.id);
   });
 });
+
+const authRouter = require("./routes/Auth");
+app.use("/auth", authRouter);
 
 app.post("/", async (req, res) => {
     res.send("Hello World!");
