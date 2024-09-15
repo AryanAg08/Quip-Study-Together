@@ -6,10 +6,9 @@ import "./landingNavbar.css";
 export function Navbar () {
   {
     return (
-      <div className="container">
-          <div className="NavBar">
+          <div className="landingNavBar">
                 <Button 
-                  backgroundColor="#72cae8" 
+                  backgroundColor="#addhe6" 
                   variant="solid" 
                   border="2px" 
                   borderColor="black" 
@@ -19,7 +18,7 @@ export function Navbar () {
                   Log In
                 </Button>
                 <Button 
-                  backgroundColor="#72cae8" 
+                  backgroundColor="#addhe6" 
                   variant="solid" 
                   border="2px" 
                   borderColor="black" 
@@ -37,7 +36,6 @@ export function Navbar () {
                 </Image>
                 
             </div>
-      </div>
     )
   }
 };
