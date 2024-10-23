@@ -1,13 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
-const mongo = require("mongoose");
 const http = require("http");
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const port = 5001 || process.env.PORT;
 const { Server } = require("socket.io");
 const cors = require("cors");
+const mongoConnection = require("./utils/mongo");
 
+mongoConnection();
 app.use(express.json());
 
 app.use(cors({
@@ -50,7 +52,11 @@ io.on("connection", (socket) => {
 });
 
 const authRouter = require("./routes/Auth");
+
 app.use("/auth", authRouter);
+
+const userRouter = require("./routes/User");
+app.use("/user", userRouter);
 
 app.post("/", async (req, res) => {
     res.send("Hello World!");

@@ -10,12 +10,29 @@ import { leaderboardDataDashboard } from "../../data/ranks";
 import { MdRocketLaunch } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
 import Goals from "../../components/goals";
+import axios from "axios";
 
 export function DashboardPage() {
     const [leaderboardData, setLeaderboardData] = useState([]);
+    const [userData, setUserData] = useState([])
 
-    useEffect(() => {
+async function fetchUserData () {
+    const token = localStorage.getItem('token'); 
+    const Id = localStorage.getItem('Id');
+    const getUserDetails = await axios.get(`${import.meta.env.BackendAddress}/user/dashboard?id=${Id}`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+
+    const userDetails = getUserDetails.data
+    setUserData(userDetails);
+
+}
+
+    useEffect( () => {
         setLeaderboardData(leaderboardDataDashboard);
+         fetchUserData();
     }, []);
 
     const DashboardCard = {

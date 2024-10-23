@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ChakraProvider, Box, Button, Input, FormControl, FormLabel, Heading, VStack, HStack, Text, useToast } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
+import { login } from '../../data/auth';
 
 const MotionBox = motion(Box);
 const MotionFormControl = motion(FormControl);
@@ -8,20 +10,54 @@ const MotionButton = motion(Button);
 
 export const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const toast = useToast();
+  const navigate = useNavigate(); // Initialize navigation
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    toast({
-      title: isLogin ? "Logged in successfully!" : "Signed up successfully!",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+
+    const creds = {
+      email,
+      password
+    };
+
+    try {
+      let loginResponse = await login(creds);  // Assuming the login function takes creds as argument
+      let result = await loginResponse;
+
+      const token = result.data.token;
+      const Id = result.data.user.Id;
+      localStorage.setItem('token', token);
+      localStorage.setItem('Id', Id);
+      // Handle successful login
+      toast({
+        title: isLogin ? "Logged in successfully!" : "Signed up successfully!",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      
+      console.log(result);
+
+      // Navigate to the dashboard and pass loginResponse data
+      navigate('/dashboard');
+    } catch (error) {
+      // Handle error during login
+      toast({
+        title: "An error occurred",
+        description: error.message,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      console.error("Login error: ", error);
+    }
   };
 
   return (
@@ -34,7 +70,7 @@ export const LoginPage = () => {
         height="100vh"
         width="100vw"
         overflow="hidden"
-        bgImage="url('https://static.vecteezy.com/system/resources/thumbnails/020/734/052/original/animated-studying-lo-fi-background-late-night-homework-2d-cartoon-character-animation-with-nighttime-cozy-bedroom-interior-on-background-4k-footage-with-alpha-channel-for-lofi-music-aesthetic-video.jpg')" // Add your image path here
+        bgImage="url('https://static.vecteezy.com/system/resources/thumbnails/020/734/052/original/animated-studying-lo-fi-background-late-night-homework-2d-cartoon-character-animation-with-nighttime-cozy-bedroom-interior-on-background-4k-footage-with-alpha-channel-for-lofi-music-aesthetic-video.jpg')"
         bgSize="cover"
         bgPosition="center"
         _before={{
@@ -57,7 +93,7 @@ export const LoginPage = () => {
           borderRadius={8}
           boxShadow="lg"
           bg="rgba(0, 0, 120, 0.2)"
-          style ={{backdropFilter: 'blur(5px)'}}
+          style={{ backdropFilter: 'blur(5px)' }}
           zIndex={2}
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +122,7 @@ export const LoginPage = () => {
                 transition={{ duration: 1.5 }}
               >
                 <FormLabel>Email</FormLabel>
-                <Input type="email" />
+                <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </MotionFormControl>
               <MotionFormControl
                 id="password"
@@ -96,7 +132,7 @@ export const LoginPage = () => {
                 transition={{ duration: 2 }}
               >
                 <FormLabel>Password</FormLabel>
-                <Input type="password" />
+                <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </MotionFormControl>
               <MotionButton
                 type="submit"
@@ -111,7 +147,7 @@ export const LoginPage = () => {
           </form>
           <HStack justifyContent="center" mt={4}>
             <Text color="white">{isLogin ? "Don't have an account?" : "Already have an account?"}</Text>
-            <Button variant="link"  color="black" colorScheme="purple" onClick={toggleForm}>
+            <Button variant="link" color="black" colorScheme="purple" onClick={toggleForm}>
               {isLogin ? "Sign Up" : "Login"}
             </Button>
           </HStack>

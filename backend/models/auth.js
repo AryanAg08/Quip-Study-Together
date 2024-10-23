@@ -4,7 +4,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
 const loginModel = new mongo.Schema({
-
+    Id: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     userName: {
         type: String,
         required: true,
@@ -65,7 +69,7 @@ const loginModel = new mongo.Schema({
     
     country: {
       type : String, 
-      required: true,
+      required: false,
     },
     joinedOn: {
       type: Date,
