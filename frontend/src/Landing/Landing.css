@@ -1,0 +1,114 @@
+/* General Styling */
+.landing-container {
+    width: 100%;
+  }
+  
+  .section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .first-section, .second-section, .third-section, .fourth-section {
+    height: 90vh;
+    background-color: #fff;
+  }
+  
+  .section-left, .section-right {
+    flex: 1;
+  }
+  
+  .image {
+    max-width: 100%;
+  }
+  
+  h1, h2, h3, p {
+    margin: 0;
+  }
+  
+  /* First Section */
+  .first-section {
+    background-color: #fff;
+  }
+  
+  .main-heading {
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  
+  .sub-heading {
+    font-size: 4rem;
+  }
+  
+  .description {
+    font-size: 1.5rem;
+  }
+  
+  .start-button {
+    background-color: #def2ff;
+    border: 2px solid black;
+    padding: 12px 24px;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  
+  .start-button span {
+    color: black;
+  }
+  
+  /* Feature Section */
+  .feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .feature {
+    background-color: #ffd4d4;
+    width: 20vw;
+    height: 60vh;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .feature-image img {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+  
+  .feature h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .feature p {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: -4px;
+  }
+  
+  /* Trial Section */
+  .trial-button {
+    background-color: #e288c8;
+    border: 2px solid black;
+    padding: 12px 24px;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  
+  /* Fourth Section */
+  .sign-up-button, .log-in-button {
+    background-color: #f2ac30;
+    border: 2px solid black;
+    padding: 12px 24px;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  
+  .sign-up-button {
+    margin-right: 20px;
+  }
+  
