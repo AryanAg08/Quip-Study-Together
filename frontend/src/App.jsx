@@ -14,6 +14,7 @@ import Lobby from "./SocketConnection/Lobby.jsx";
 import MyRoom from "./SocketConnection/MyRoom.jsx";
 import StorePage from "./StorePage/StorePage.jsx";
 import HelpPage from "./About/About.jsx";
+import TodoPage from "./Todo/Todo.jsx";
 import MainLoader from "./Loading/MainLoader.jsx";
 import ErrorPage from "./Loading/ErrorPage.jsx";
 import { AnimatePresence, motion } from "framer-motion";
@@ -110,6 +111,7 @@ function App() {
           /> */}
         <Route path="/quipstore" element={<StorePage />} />
         <Route path="/about-quipBoard" element={<HelpPage />} />
+        <Route path="/todo" element={<TodoPage/>}/>
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

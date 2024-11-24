@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import {
   FiHome,
   FiInfo,
+  FiList,
   FiSettings,
   FiLogOut,
   FiFile,
@@ -166,6 +167,20 @@ const Dashboard = ({ openModal }) => {
               <span>Home</span>
             </NavItem>
             <NavItem
+              active={activeIcon === "todo"}
+              onClick={() => {
+                if (userinfo.email == "" || !userinfo.email) {
+                  openModal();
+                } else {
+                  navigate("/todo");
+                  handleIconClick("todo");
+                }
+              }}
+            >
+              <FiList/>
+              <span>To-Do</span>
+            </NavItem>
+            <NavItem
               to="/quipstore"
               active={activeIcon === "files"}
               onClick={() => {
@@ -247,6 +262,20 @@ const Dashboard = ({ openModal }) => {
         >
           <FiHome />
           <span>Home</span>
+        </BottomNavItem>
+        <BottomNavItem
+              active={activeIcon === "todo"}
+              onClick={() => {
+                if (userinfo.email == "" || !userinfo.email) {
+                  openModal();
+                } else {
+                  navigate("/todo");
+                  handleIconClick("todo");
+                }
+              }}
+        >
+          <FiList/>
+          <span>To-Do</span>
         </BottomNavItem>
 
         <BottomNavItem
