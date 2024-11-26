@@ -76,20 +76,28 @@ const NavBar = ({ openModal }) => {
       <NavContainer>
         <Brand href="#home">Quip</Brand>
         <NavLinks>
+          {userinfo.show && (
+            <>
+              <Counter>
+                <CounterIcon src="/coin.png" alt="Coins" />
+                <CounterValue>150</CounterValue>
+              </Counter>
+              <Counter>
+                <CounterIcon src="/streak.png" alt="Streak" />
+                <CounterValue>2</CounterValue>
+              </Counter>
+            </>
+          )}
           {!userinfo.show ? (
-            <SignInButton onClick={openModal}>
-          Sign Up
-        </SignInButton>
+            <SignInButton onClick={openModal}>Sign Up</SignInButton>
           ) : (
             <ProfileIconWrapper onClick={handleProfileClick}>
               <FiUser />
             </ProfileIconWrapper>
           )}
-          <IconWrapper>
-            <FireImage src="/fire-icon.png" alt="fire-icon" />
-            <span>2</span>
-          </IconWrapper>
         </NavLinks>
+
+
       </NavContainer>
 
       {showModal && (
@@ -185,17 +193,34 @@ const SignInButton = styled.button`
     background-color: #303f9f;
   }
 `;
-const IconWrapper = styled.div`
+const Counter = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  background: #f4f6f8;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+
+  &:hover {
+    background: #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
 `;
 
-const FireImage = styled.img`
-  width: 20px;
-  height: 20px;
+const CounterIcon = styled.img`
+  width: 24px;
+  height: 24px;
   object-fit: cover;
 `;
+
+const CounterValue = styled.span`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+`;
+
 const ProfileIconWrapper = styled.div`
   background: #e3f2fd;
   padding: 10px;

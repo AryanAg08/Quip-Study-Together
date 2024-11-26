@@ -1,114 +1,130 @@
-/* General Styling */
+/* General styles */
+body {
+  font-family: "Roboto", sans-serif; /* Revert to Roboto font */
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* Revert to the original white background */
+}
+
 .landing-container {
-    width: 100%;
-  }
-  
-  .section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-  }
-  
-  .first-section, .second-section, .third-section, .fourth-section {
-    height: 90vh;
-    background-color: #fff;
-  }
-  
-  .section-left, .section-right {
-    flex: 1;
-  }
-  
-  .image {
-    max-width: 100%;
-  }
-  
-  h1, h2, h3, p {
-    margin: 0;
-  }
-  
-  /* First Section */
-  .first-section {
-    background-color: #fff;
-  }
-  
-  .main-heading {
-    font-size: 3rem;
-    font-weight: 400;
-  }
-  
-  .sub-heading {
-    font-size: 4rem;
-  }
-  
-  .description {
-    font-size: 1.5rem;
-  }
-  
-  .start-button {
-    background-color: #def2ff;
-    border: 2px solid black;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-    cursor: pointer;
-  }
-  
-  .start-button span {
-    color: black;
-  }
-  
-  /* Feature Section */
-  .feature-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .feature {
-    background-color: #ffd4d4;
-    width: 20vw;
-    height: 60vh;
-    padding: 15px;
-    text-align: center;
-  }
-  
-  .feature-image img {
-    width: 45%;
-    margin-bottom: 20px;
-  }
-  
-  .feature h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .feature p {
-    font-size: 1rem;
-    font-weight: normal;
-    margin-top: -4px;
-  }
-  
-  /* Trial Section */
-  .trial-button {
-    background-color: #e288c8;
-    border: 2px solid black;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-    cursor: pointer;
-  }
-  
-  /* Fourth Section */
-  .sign-up-button, .log-in-button {
-    background-color: #f2ac30;
-    border: 2px solid black;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-    cursor: pointer;
-  }
-  
-  .sign-up-button {
-    margin-right: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Section Styles */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10%;
+}
+
+.section-left,
+.section-right {
+  flex: 1;
+}
+
+.first-section .section-left {
+  text-align: left;
+}
+
+.main-heading,
+.sub-heading,
+.feature h3, h1 {
+  font-weight: bold; /* Make all headings bold */
+}
+
+.main-heading {
+  font-size: 3rem;
+  color: #3f51b5; /* Primary color */
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 1.5rem;
+  color: #555; /* Dark gray for subheading */
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #777; /* Light gray for description */
+  margin-bottom: 20px;
+}
+
+.start-button,
+.trial-button,
+.sign-up-button,
+.log-in-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-button {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.trial-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.sign-up-button {
+  background-color: #ff4081;
+  color: white;
+}
+
+.log-in-button {
+  background-color: #ff9800;
+  color: white;
+}
+
+.start-button:hover,
+.trial-button:hover,
+.sign-up-button:hover,
+.log-in-button:hover {
+  opacity: 0.9;
+}
+
+/* Images */
+.main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.feature-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.feature-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: bold; /* Ensure feature titles are also bold */
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}

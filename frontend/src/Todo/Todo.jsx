@@ -1,46 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { FiCheckCircle, FiPlusCircle, FiCircle, FiTrash2 } from "react-icons/fi";
-import axios from "axios";
+import { FiCheckCircle, FiPlusCircle, FiCircle, FiTrash2, FiEdit } from "react-icons/fi";
 
 const TodoPage = () => {
   const [goals, setGoals] = useState([]);
   const [newGoal, setNewGoal] = useState("");
-  const userEmail = "user@example.com"; // Replace with dynamic email if available
+  const [editingIndex, setEditingIndex] = useState(null);
+  const [editingText, setEditingText] = useState("");
 
-  useEffect(() => {
-    // Fetch existing goals
-    axios
-      .get(`/api/goals?email=${userEmail}`)
-      .then((response) => setGoals(response.data.goals))
-      .catch((error) => console.error("Error fetching goals:", error));
-  }, [userEmail]);
-
+  // Add a new goal
   const addGoal = () => {
     if (newGoal.trim() === "") return;
-
-    const updatedGoals = [...goals, { text: newGoal, completed: false }];
-    updateGoals(updatedGoals);
+    setGoals([...goals, { text: newGoal, completed: false }]);
     setNewGoal("");
   };
 
+  // Toggle completion status of a goal
   const toggleCompletion = (index) => {
     const updatedGoals = goals.map((goal, i) =>
       i === index ? { ...goal, completed: !goal.completed } : goal
     );
-    updateGoals(updatedGoals);
+    setGoals(updatedGoals);
   };
 
+  // Delete a goal
   const deleteGoal = (index) => {
     const updatedGoals = goals.filter((_, i) => i !== index);
-    updateGoals(updatedGoals);
+    setGoals(updatedGoals);
   };
 
-  const updateGoals = (updatedGoals) => {
-    axios
-      .post(`/api/goals/update`, { email: userEmail, goals: updatedGoals })
-      .then(() => setGoals(updatedGoals))
-      .catch((error) => console.error("Error updating goals:", error));
+  // Start editing a goal
+  const startEditing = (index) => {
+    setEditingIndex(index);
+    setEditingText(goals[index].text);
+  };
+
+  // Save the edited goal
+  const saveEdit = () => {
+    const updatedGoals = goals.map((goal, i) =>
+      i === editingIndex ? { ...goal, text: editingText } : goal
+    );
+    setGoals(updatedGoals);
+    setEditingIndex(null);
+    setEditingText("");
+  };
+
+  // Cancel editing
+  const cancelEdit = () => {
+    setEditingIndex(null);
+    setEditingText("");
   };
 
   return (
@@ -63,23 +71,37 @@ const TodoPage = () => {
             </AddButton>
           </AddGoal>
           <GoalList>
-            {goals.length > 0 ? (
-                goals.map((goal, index) => (
-                <Goal key={index} completed={goal.completed}>
+            {goals.map((goal, index) => (
+              <Goal key={index} completed={goal.completed}>
+                {editingIndex === index ? (
+                  <EditContainer>
+                    <EditInput
+                      type="text"
+                      value={editingText}
+                      onChange={(e) => setEditingText(e.target.value)}
+                    />
+                    <SaveButton onClick={saveEdit}>Save</SaveButton>
+                    <CancelButton onClick={cancelEdit}>Cancel</CancelButton>
+                  </EditContainer>
+                ) : (
+                  <>
                     <GoalText onClick={() => toggleCompletion(index)}>
-                    {goal.completed ? <FiCheckCircle /> : <FiCircle />}
-                    {goal.text}
+                      {goal.completed ? <FiCheckCircle /> : <FiCircle />}
+                      {goal.text}
                     </GoalText>
-                    <DeleteButton onClick={() => deleteGoal(index)}>
-                    <FiTrash2 />
-                    </DeleteButton>
-                </Goal>
-                ))
-            ) : (
-                <p>No goals added yet</p>
-            )}
-            </GoalList>
-
+                    <ActionButtons>
+                      <EditButton onClick={() => startEditing(index)}>
+                        <FiEdit />
+                      </EditButton>
+                      <DeleteButton onClick={() => deleteGoal(index)}>
+                        <FiTrash2 />
+                      </DeleteButton>
+                    </ActionButtons>
+                  </>
+                )}
+              </Goal>
+            ))}
+          </GoalList>
         </Content>
       </Container>
     </MainTodoDiv>
@@ -179,6 +201,23 @@ const GoalText = styled.div`
   font-size: 1em;
 `;
 
+const ActionButtons = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const EditButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #3498db;
+  font-size: 1.2em;
+  cursor: pointer;
+
+  &:hover {
+    color: #2980b9;
+  }
+`;
+
 const DeleteButton = styled.button`
   background: transparent;
   border: none;
@@ -188,6 +227,46 @@ const DeleteButton = styled.button`
 
   &:hover {
     color: #c0392b;
+  }
+`;
+
+const EditContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const EditInput = styled.input`
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+`;
+
+const SaveButton = styled.button`
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #1e8449;
+  }
+`;
+
+const CancelButton = styled.button`
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: #c0392b;
   }
 `;
 
