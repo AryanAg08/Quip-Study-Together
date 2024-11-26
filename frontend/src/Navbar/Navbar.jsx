@@ -77,12 +77,18 @@ const NavBar = ({ openModal }) => {
         <Brand href="#home">Quip</Brand>
         <NavLinks>
           {!userinfo.show ? (
-            <SignInButton onClick={openModal}>Sign Up</SignInButton>
+            <SignInButton onClick={openModal}>
+          Sign Up
+        </SignInButton>
           ) : (
             <ProfileIconWrapper onClick={handleProfileClick}>
               <FiUser />
             </ProfileIconWrapper>
           )}
+          <IconWrapper>
+            <FireImage src="/fire-icon.png" alt="fire-icon" />
+            <span>2</span>
+          </IconWrapper>
         </NavLinks>
       </NavContainer>
 
@@ -179,7 +185,17 @@ const SignInButton = styled.button`
     background-color: #303f9f;
   }
 `;
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
 
+const FireImage = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+`;
 const ProfileIconWrapper = styled.div`
   background: #e3f2fd;
   padding: 10px;
